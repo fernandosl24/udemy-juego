@@ -20,7 +20,7 @@ dificil.addEventListener("click",function(){
 	reiniciarJuego();
 });
 
-reiniciar.addEventListener("click",reiniciarJuego());
+reiniciar.addEventListener("click",reiniciarJuego);
 
 colorDisplay.textContent = pickedColor;
 
