@@ -1,5 +1,6 @@
-var colors = generateColors(6);
 var squares = document.querySelectorAll(".square");
+var numCuadros = Number(squares.length);
+var colors = generateColors(numCuadros);
 var pickedColor = pickColor();
 var colorDisplay = document.getElementById("ColorDisplay");
 var mensaje = document.getElementById("mensaje");
@@ -8,32 +9,18 @@ var reiniciar = document.getElementById("reiniciar");
 var facil = document.getElementById("facil");
 var dificil = document.getElementById("dificil");
 
-facil.addEventListener("click",function(){
-	facil.classList.add("selected");
-	dificil.classList.remove("selected");
-	colors = generateColors(3);
-	pickedColor = pickColor();
-	colorDisplay.textContent = pickedColor;
-	for(i=0; i<squares.length; i++){
-		if(i<3){
-			squares[i].style.backgroundColor = colors[i];
-		} else {
-			squares[i].style.backgroundColor = "#232323";
-		}
-		
-	};
-	ache1.style.backgroundColor = "#232323";
-	mensaje.textContent = "";
-	reiniciar.textContent = "Reiniciar";
-});
 
-dificil.addEventListener("click",function(){
-	facil.classList.remove("selected");
-	dificil.classList.add("selected");
+facil.addEventListener("click",function(){
+	numCuadros = 3;
 	reiniciarJuego();
 });
 
-reiniciar.addEventListener("click",reiniciarJuego);
+dificil.addEventListener("click",function(){
+	numCuadros = 6;
+	reiniciarJuego();
+});
+
+reiniciar.addEventListener("click",reiniciarJuego());
 
 colorDisplay.textContent = pickedColor;
 
@@ -82,15 +69,25 @@ function generateColors(num){
 }
 
 function reiniciarJuego(){
-	colors = generateColors(6);
+	colors = generateColors(numCuadros);
 	pickedColor = pickColor();
 	colorDisplay.textContent = pickedColor;
 	for(i=0; i<squares.length; i++){
-		squares[i].style.backgroundColor = colors[i];
-	};
+		if(colors[i]){
+			squares[i].style.backgroundColor = colors[i];
+			squares[i].style.display = "block";
+		} else {
+			squares[i].style.display = "none";
+		};
 	ache1.style.backgroundColor = "#232323";
 	mensaje.textContent = "";
 	reiniciar.textContent = "Reiniciar";
-	dificil.classList.add("selected");
-	facil.classList.remove("selected");
-}
+
+	if(numCuadros<4){
+		facil.classList.add("selected");
+		dificil.classList.remove("selected");
+	} else {
+		facil.classList.remove("selected");
+		dificil.classList.add("selected");
+	}
+}};
