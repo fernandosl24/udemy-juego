@@ -34,10 +34,12 @@ for(i=0; i<squares.length; i++){
 			changeColors(colorCuadrado);
 			ache1.style.backgroundColor = colorCuadrado;
 			reiniciar.textContent = "Jugar de nuevo?";
+			mensaje.style.color = "steelblue";
 
 		} else {
 			this.style.backgroundColor = "#232323";
 			mensaje.textContent = "Intentalo de Nuevo";
+			mensaje.style.color = "steelblue";
 		};
 	});
 };
