@@ -33,7 +33,21 @@ h1 {
 
 #navbar{
 	background-color: white;
+	padding: 5px 0 5px 0px;
+	text-align: left;
+	width: 70%;
+	float:left;
+	height: 30px;
+}
+
+#puntuacion{
+	width:30%;
+	color:steelblue;
+	background-color: white;
+	float:right;
 	padding: 10px 0;
+	height: 20px;
+	font-weight: 900;
 	text-align: center;
 }
 
