@@ -79,7 +79,7 @@ function reiniciarJuego(){
 		} else {
 			squares[i].style.display = "none";
 		};
-	ache1.style.backgroundColor = "#232323";
+	ache1.style.backgroundColor = "steelblue";
 	mensaje.textContent = "";
 	reiniciar.textContent = "Reiniciar";
 
