@@ -38,6 +38,7 @@ h1 {
 	width: 70%;
 	float:left;
 	height: 30px;
+	position: relative;
 }
 
 #puntuacion{
@@ -45,10 +46,11 @@ h1 {
 	color:steelblue;
 	background-color: white;
 	float:right;
-	padding: 10px 0;
+	padding: 10px 0 10px 0px;
 	height: 20px;
 	font-weight: 900;
 	text-align: center;
+	position: relative;
 }
 
 #mensaje{
