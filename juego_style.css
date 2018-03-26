@@ -31,14 +31,17 @@ h1 {
 	transition: all 0.3s;
 }
 
+#logosap{
+padding: 0 0 0 15px;
+}
+
 #navbar{
 	background-color: white;
-	padding: 5px 0 5px 0px;
+	padding: 5px 0;
 	text-align: left;
 	width: 70%;
 	float:left;
 	height: 30px;
-	position: relative;
 }
 
 #puntuacion{

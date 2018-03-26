@@ -8,7 +8,13 @@ var ache1 = document.getElementById("header");
 var reiniciar = document.getElementById("reiniciar");
 var facil = document.getElementById("facil");
 var dificil = document.getElementById("dificil");
+var valorpuntuacion = document.getElementById("valorpuntuacion")
+var puntuacion = 0;
 
+for(i=0; i<squares.length; i++){
+	squares[i].style.backgroundColor = colors[i];
+	squares[i].addEventListener("click", evaluar);
+};
 
 facil.addEventListener("click",function(){
 	numCuadros = 3;
@@ -24,25 +30,6 @@ reiniciar.addEventListener("click",reiniciarJuego);
 
 colorDisplay.textContent = pickedColor;
 
-for(i=0; i<squares.length; i++){
-	squares[i].style.backgroundColor = colors[i];
-
-	squares[i].addEventListener("click", function(){
-		colorCuadrado = this.style.backgroundColor;
-		if(pickedColor==colorCuadrado){
-			mensaje.textContent = "Correcto!";
-			changeColors(colorCuadrado);
-			ache1.style.backgroundColor = colorCuadrado;
-			reiniciar.textContent = "Jugar de nuevo?";
-			mensaje.style.color = "steelblue";
-
-		} else {
-			this.style.backgroundColor = "#232323";
-			mensaje.textContent = "Intentalo de Nuevo";
-			mensaje.style.color = "steelblue";
-		};
-	});
-};
 
 function changeColors(color){
 	for(i=0;i<squares.length;i++){
@@ -71,6 +58,10 @@ function generateColors(num){
 }
 
 function reiniciarJuego(){
+	for(i=0; i<squares.length; i++){
+		squares[i].style.backgroundColor = colors[i];
+		squares[i].addEventListener("click", evaluar);
+	};
 	colors = generateColors(numCuadros);
 	pickedColor = pickColor();
 	colorDisplay.textContent = pickedColor;
@@ -93,3 +84,28 @@ function reiniciarJuego(){
 		dificil.classList.add("selected");
 	}
 }};
+
+function evaluar(){
+		colorCuadrado = this.style.backgroundColor;
+		if(pickedColor==colorCuadrado){
+		for(i=0; i<squares.length; i++){
+			squares[i].removeEventListener("click",evaluar);
+		};
+			mensaje.textContent = "Correcto!";
+			changeColors(colorCuadrado);
+			ache1.style.backgroundColor = colorCuadrado;
+			reiniciar.textContent = "Jugar de nuevo?";
+			mensaje.style.color = "steelblue";
+			puntuacion = puntuacion + 10;
+			valorpuntuacion.textContent = puntuacion;
+
+
+		} else {
+			this.removeEventListener("click",evaluar);
+			this.style.backgroundColor = "#232323";
+			mensaje.textContent = "Intentalo de Nuevo";
+			mensaje.style.color = "steelblue";
+			puntuacion = puntuacion - 2;
+			valorpuntuacion.textContent = puntuacion;
+		};
+}
