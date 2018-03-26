@@ -21,7 +21,7 @@ font-family: "Montserrat", "Avenir";
 
 h1 {
 	text-align: center;
-	font-weight: normal;
+	font-weight: lighter;
 	text-transform: uppercase;
 	color: white;
 	background-color: steelblue;
@@ -31,20 +31,25 @@ h1 {
 	transition: all 0.3s;
 }
 
+#navbar{
+	background-color: white;
+	padding: 10px 0;
+	text-align: center;
+}
+
 #mensaje{
 	color: steelblue;
 	display: inline-block;
 	width: 25%;
 	text-transform: uppercase;
-	font-weight: 700;
+	font-weight: 900;
 	font-family: inherit;
 	letter-spacing: 1px;
-	font-size: 30px;
 }
 
 #stripe{
 	background-color: white;
-	height: 60px;
+	height: 40px;
 	text-align: center;
 }
 
@@ -54,7 +59,7 @@ h1 {
 }
 
 #ColorDisplay{
-	font-size: 200%;
+	font-size: 150%;
 }
 
 button{
