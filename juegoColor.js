@@ -16,6 +16,8 @@ for(i=0; i<squares.length; i++){
 	squares[i].addEventListener("click", evaluar);
 };
 
+alert(location.hostname);
+
 facil.addEventListener("click",function(){
 	numCuadros = 3;
 	reiniciarJuego();
